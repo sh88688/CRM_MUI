@@ -65,13 +65,11 @@ class docketBar extends React.Component {
     open: false,
     open_master: false,
     open_mail: false,
-    anchorEl: null,
     mobileMoreAnchorEl: null
   };
 
   handleMenuClose = () => {
-    this.setState({ anchorEl: null });
-    this.handleMobileMenuClose();
+    this.setState({ mobileMoreAnchorEl: null });
   };
 
   handleMobileMenuOpen = event => {
