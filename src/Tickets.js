@@ -14,17 +14,6 @@ import PrintIcon from "@material-ui/icons/Print";
 import SortDialog from "./Components/SortDialog";
 import SearchFilter from "./Components/SearchFilter";
 import IconButton from "@material-ui/core/IconButton";
-const sortOptions = [
-  "Docket Number",
-  "Ticket Status",
-  "Person Name",
-  "Assigned By",
-  "Ticket Type",
-  "Priority",
-  "Disposition Name",
-  "Sub Disposition Name",
-  "Assigned On"
-];
 
 const styles = theme => ({
   root: {
