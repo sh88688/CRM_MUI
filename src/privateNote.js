@@ -68,7 +68,7 @@ class TicketUpdate extends React.Component {
 
     return (
       <div>
-        <DocketBar />
+        <DocketBar active="note" />
         <Grid
           container
           className={classes.container}

@@ -6,6 +6,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Dialog from "@material-ui/core/Dialog";
 import SortIcon from "@material-ui/icons/Sort";
+import { Typography } from "@material-ui/core";
 
 const sortOptions = [
   "Docket Number",
@@ -54,7 +55,11 @@ class SortDialog extends React.Component {
               >
                 <SortIcon className={classes.icon} />
 
-                <ListItemText primary={sortOptions} />
+                <ListItemText
+                  primary={
+                    <Typography variant="body2">{sortOptions}</Typography>
+                  }
+                />
               </ListItem>
             ))}
           </List>

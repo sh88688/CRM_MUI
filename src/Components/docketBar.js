@@ -62,6 +62,7 @@ const styles = theme => ({
 
 class docketBar extends React.Component {
   state = {
+    selected: "",
     open: false,
     open_master: false,
     open_mail: false,
@@ -115,6 +116,7 @@ class docketBar extends React.Component {
         <MenuItem
           className={classes.menuItem}
           onClick={this.handleBasicDetailsClick}
+          selected={this.props.active === "details"}
         >
           <IconButton color="inherit">
             <UserIcon className={classes.icon} />
@@ -122,6 +124,7 @@ class docketBar extends React.Component {
           <p className={classes.menutext}>Basic Details</p>
         </MenuItem>
         <MenuItem
+          selected={this.props.active === "update"}
           className={classes.menuItem}
           onClick={this.handleUpdationClick}
         >
@@ -131,6 +134,7 @@ class docketBar extends React.Component {
           <p className={classes.menutext}>Ticket Updation</p>
         </MenuItem>
         <MenuItem
+          selected={this.props.active === "assign"}
           className={classes.menuItem}
           onClick={this.handleAssignmentClick}
         >
@@ -139,13 +143,18 @@ class docketBar extends React.Component {
           </IconButton>
           <p className={classes.menutext}>Ticket Assignment</p>
         </MenuItem>
-        <MenuItem className={classes.menuItem} onClick={this.handleNoteClick}>
+        <MenuItem
+          selected={this.props.active === "note"}
+          className={classes.menuItem}
+          onClick={this.handleNoteClick}
+        >
           <IconButton color="inherit">
             <NoteIcon className={classes.icon} />
           </IconButton>
           <p className={classes.menutext}>Private Note</p>
         </MenuItem>
         <MenuItem
+          selected={this.props.active === "timeline"}
           className={classes.menuItem}
           onClick={this.handleTimelineClick}
         >

@@ -7,18 +7,37 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import ClearIcon from "@material-ui/icons/Clear";
+import IconButton from "@material-ui/core/IconButton";
+import { Typography } from "@material-ui/core";
 
 const styles = {
   dialogTitle: {
-    borderBottom: "1px solid rgba(0, 0, 0, 0.12)"
+    borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+    padding: "15px 15px 10px"
   },
   dialogActions: {
-    borderTop: "1px solid rgba(0, 0, 0, 0.12)"
+    borderTop: "1px solid rgba(0, 0, 0, 0.12)",
+    paddingTop: "10px"
+  },
+  clearButton: {
+    top: "5px",
+    position: "absolute",
+    right: "8px"
+  },
+  icon: {
+    fontSize: "18px"
+  },
+  paper: {
+    margin: "10px"
+  },
+  paperScrollPaper: {
+    maxHeight: "calc(100% - 20px)"
   }
 };
 
 class SearchFilter extends React.Component {
-  handleClickOpen = () => {
+  handleClose = () => {
     this.props.onClose();
   };
 
@@ -28,12 +47,25 @@ class SearchFilter extends React.Component {
     return (
       <div>
         <Dialog
+          classes={{
+            paper: classes.paper,
+            paperScrollPaper: classes.paperScrollPaper
+          }}
+          fullWidth
           {...other}
-          onClose={this.handleClickOpen}
+          className={classes.dialogTitle}
+          onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle className={classes.dialogTitle} id="form-dialog-title">
-            Filter
+            <Typography variant="subtitle1">Filter</Typography>
+            <IconButton
+              onClick={this.handleClose}
+              className={classes.clearButton}
+              color="inherit"
+            >
+              <ClearIcon className={classes.icon} />
+            </IconButton>
           </DialogTitle>
           <DialogContent>
             <br />
@@ -90,10 +122,10 @@ class SearchFilter extends React.Component {
             />
           </DialogContent>
           <DialogActions className={classes.dialogActions}>
-            <Button onClick={this.handleClickOpen} color="secondary">
+            <Button onClick={this.handleClose} color="secondary">
               Search
             </Button>
-            <Button onClick={this.handleClickOpen} color="primary">
+            <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
           </DialogActions>

@@ -71,13 +71,6 @@ class TicketUpdate extends React.Component {
             helperText: "Select Department"
           }
         },
-        inputAdornment: {
-          endAdornment: {
-            position: "end",
-            value: "?",
-            helptooltip: "Select Department"
-          }
-        },
         value: "",
         validation: { required: true },
         valid: true
@@ -105,13 +98,6 @@ class TicketUpdate extends React.Component {
             helperText: "Select User"
           }
         },
-        inputAdornment: {
-          endAdornment: {
-            position: "end",
-            value: "?",
-            helptooltip: "Select User"
-          }
-        },
         value: "",
         validation: { required: true },
         valid: true
@@ -120,8 +106,8 @@ class TicketUpdate extends React.Component {
         elementType: "textarea",
         elementConfig: {
           variant: "outlined",
-          rows: 4,
-          rowsMax: 5,
+          rows: 3,
+          rowsMax: 4,
           margin: "dense",
           label: "Remarks *",
           InputLabelProps: {
@@ -140,7 +126,7 @@ class TicketUpdate extends React.Component {
 
     return (
       <div>
-        <DocketBar />
+        <DocketBar active="assign" />
         <Grid
           container
           className={classes.container}

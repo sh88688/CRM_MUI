@@ -108,7 +108,7 @@ class Details extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <DocketBar />
+        <DocketBar active="timeline" />
         <Grid
           container
           className={classes.container}

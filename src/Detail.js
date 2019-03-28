@@ -44,7 +44,7 @@ class Details extends React.Component {
 
     return (
       <div>
-        <DocketBar />
+        <DocketBar active="details" />
         <Grid
           container
           className={classes.container}

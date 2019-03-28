@@ -70,13 +70,6 @@ class TicketUpdate extends React.Component {
             helperText: "Select Disposition"
           }
         },
-        inputAdornment: {
-          endAdornment: {
-            position: "end",
-            value: "?",
-            helptooltip: "Select Disposition"
-          }
-        },
         value: "returns",
         validation: {},
         valid: true
@@ -105,14 +98,7 @@ class TicketUpdate extends React.Component {
             InputLabelProps: {
               shrink: true
             },
-            helperText: "Select Sub Disposition"
-          }
-        },
-        inputAdornment: {
-          endAdornment: {
-            position: "end",
-            value: "?",
-            helptooltip: "Select Sub-Disposition"
+            helperText: "Select Sub disposition"
           }
         },
         value: "gstr 3b",
@@ -150,13 +136,6 @@ class TicketUpdate extends React.Component {
             helperText: "Select Ticket Status"
           }
         },
-        inputAdornment: {
-          endAdornment: {
-            position: "end",
-            value: "?",
-            helptooltip: "Select Ticket Status"
-          }
-        },
         value: "new",
         validation: { required: true },
         valid: true
@@ -166,8 +145,8 @@ class TicketUpdate extends React.Component {
         elementConfig: {
           variant: "outlined",
           margin: "dense",
-          rows: 3,
-          rowsMax: 4,
+          rows: 2,
+          rowsMax: 3,
           label: "Agent Remarks *",
           InputLabelProps: {
             shrink: true
@@ -185,7 +164,7 @@ class TicketUpdate extends React.Component {
 
     return (
       <div>
-        <DocketBar />
+        <DocketBar active="update" />
         <Grid
           container
           className={classes.container}
