@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import TicketIcon from "@material-ui/icons/ConfirmationNumber";
-import FormRender from "./FormRender";
-import DocketBar from "./Components/docketBar";
+import DetailIcon from "@material-ui/icons/Update";
+import FormRender from "../FormRender";
 
 const styles = theme => ({
   root: {
@@ -31,6 +30,7 @@ const styles = theme => ({
     width: "100%",
     paddingLeft: "8px"
   },
+
   menu: {
     position: "absolute",
     right: "10px"
@@ -44,72 +44,111 @@ const styles = theme => ({
 class TicketUpdate extends React.Component {
   state = {
     jsonForm: {
-      departments: {
+      disposition: {
         elementType: "select",
         elementConfig: {
           options: [
             {
-              value: "crm",
-              displayValue: "CRM"
+              value: "payment",
+              displayValue: "Payment"
             },
             {
-              value: "sales",
-              displayValue: "Sales"
+              value: "returns",
+              displayValue: "Returns"
             },
             {
-              value: "support",
-              displayValue: "Support"
+              value: "tax deduction",
+              displayValue: "Tax Deduction"
             }
           ],
           configs: {
             variant: "outlined",
             margin: "dense",
-            label: "Departments *",
+            label: "Disposition *",
             InputLabelProps: {
               shrink: true
             },
-            helperText: "Select Department"
+            helperText: "Select Disposition"
           }
         },
-        value: "",
-        validation: { required: true },
+        value: "returns",
+        validation: {},
         valid: true
       },
-      assign_to: {
+      sub_disposition: {
         elementType: "select",
         elementConfig: {
           options: [
             {
-              value: "vikas",
-              displayValue: "Vikas"
+              value: "login issue",
+              displayValue: "Login Issue"
             },
             {
-              value: "rohit",
-              displayValue: "Rohit"
+              value: "gstr 2",
+              displayValue: "GSTR 2"
+            },
+            {
+              value: "gstr 3b",
+              displayValue: "GSTR 3B"
             }
           ],
           configs: {
             variant: "outlined",
             margin: "dense",
-            label: "Assign to *",
+            label: "Sub Disposition *",
             InputLabelProps: {
               shrink: true
             },
-            helperText: "Select User"
+            helperText: "Select Sub disposition"
           }
         },
-        value: "",
+        value: "gstr 3b",
         validation: { required: true },
         valid: true
       },
-      remarks: {
+      ticket_status: {
+        elementType: "select",
+        elementConfig: {
+          options: [
+            {
+              value: "new",
+              displayValue: "NEW"
+            },
+            {
+              value: "closed",
+              displayValue: "CLOSED"
+            },
+            {
+              value: "inprogress",
+              displayValue: "INPROGRESS"
+            },
+            {
+              value: "awating customer response",
+              displayValue: "AWAITING CUSTOMER RESPONSE"
+            }
+          ],
+          configs: {
+            variant: "outlined",
+            margin: "dense",
+            label: "Ticket Status *",
+            InputLabelProps: {
+              shrink: true
+            },
+            helperText: "Select Ticket Status"
+          }
+        },
+        value: "new",
+        validation: { required: true },
+        valid: true
+      },
+      agent_remarks: {
         elementType: "textarea",
         elementConfig: {
           variant: "outlined",
-          rows: 3,
-          rowsMax: 4,
           margin: "dense",
-          label: "Remarks *",
+          rows: 2,
+          rowsMax: 3,
+          label: "Agent Remarks *",
           InputLabelProps: {
             shrink: true
           },
@@ -126,7 +165,7 @@ class TicketUpdate extends React.Component {
 
     return (
       <div>
-        <DocketBar active="assign" />
+        {/* <DocketBar active="update" /> */}
         <Grid
           container
           className={classes.container}
@@ -135,12 +174,12 @@ class TicketUpdate extends React.Component {
         >
           <Grid item xs={11}>
             <Typography className={classes.heading} color="secondary">
-              <TicketIcon color="primary" /> &nbsp; Ticket Assignment
+              <DetailIcon color="primary" /> &nbsp; Ticket Updation
             </Typography>
           </Grid>
           <br /> <br />
           <Grid item xs={11}>
-            <FormRender json={this.state.jsonForm} buttonText="Assign Ticket" />
+            <FormRender json={this.state.jsonForm} buttonText="Update Ticket" />
           </Grid>
         </Grid>
         <br />

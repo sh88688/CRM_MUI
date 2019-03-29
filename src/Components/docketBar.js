@@ -62,7 +62,7 @@ const styles = theme => ({
 
 class docketBar extends React.Component {
   state = {
-    selected: "",
+    selected: 0,
     open: false,
     open_master: false,
     open_mail: false,
@@ -77,24 +77,29 @@ class docketBar extends React.Component {
     this.setState({ mobileMoreAnchorEl: event.currentTarget });
   };
   handleBasicDetailsClick = () => {
-    this.props.history.push("/details");
-    this.setState({ mobileMoreAnchorEl: null });
+    // this.props.history.push("/details");
+    this.props.onSelect(0);
+    this.setState({ mobileMoreAnchorEl: null, selected: 0 });
   };
   handleUpdationClick = () => {
-    this.props.history.push("/ticketUpdate");
-    this.setState({ mobileMoreAnchorEl: null });
+    // this.props.history.push("/ticketUpdate");
+    this.props.onSelect(1);
+    this.setState({ mobileMoreAnchorEl: null, selected: 1 });
   };
   handleAssignmentClick = () => {
-    this.props.history.push("/ticketAssign");
-    this.setState({ mobileMoreAnchorEl: null });
+    // this.props.history.push("/ticketAssign");
+    this.props.onSelect(2);
+    this.setState({ mobileMoreAnchorEl: null, selected: 2 });
   };
   handleNoteClick = () => {
-    this.props.history.push("/note");
-    this.setState({ mobileMoreAnchorEl: null });
+    this.props.onSelect(3);
+    // this.props.history.push("/note");
+    this.setState({ mobileMoreAnchorEl: null, selected: 3 });
   };
   handleTimelineClick = () => {
-    this.props.history.push("/timeline");
-    this.setState({ mobileMoreAnchorEl: null });
+    this.props.onSelect(4);
+    // this.props.history.push("/timeline");
+    this.setState({ mobileMoreAnchorEl: null, selected: 4 });
   };
   handleBackClick = () => {
     this.props.history.push("/");
@@ -116,7 +121,7 @@ class docketBar extends React.Component {
         <MenuItem
           className={classes.menuItem}
           onClick={this.handleBasicDetailsClick}
-          selected={this.props.active === "details"}
+          selected={this.state.selected === 0}
         >
           <IconButton color="inherit">
             <UserIcon className={classes.icon} />
@@ -124,7 +129,7 @@ class docketBar extends React.Component {
           <p className={classes.menutext}>Basic Details</p>
         </MenuItem>
         <MenuItem
-          selected={this.props.active === "update"}
+          selected={this.state.selected === 1}
           className={classes.menuItem}
           onClick={this.handleUpdationClick}
         >
@@ -134,7 +139,7 @@ class docketBar extends React.Component {
           <p className={classes.menutext}>Ticket Updation</p>
         </MenuItem>
         <MenuItem
-          selected={this.props.active === "assign"}
+          selected={this.state.selected === 2}
           className={classes.menuItem}
           onClick={this.handleAssignmentClick}
         >
@@ -144,7 +149,7 @@ class docketBar extends React.Component {
           <p className={classes.menutext}>Ticket Assignment</p>
         </MenuItem>
         <MenuItem
-          selected={this.props.active === "note"}
+          selected={this.state.selected === 3}
           className={classes.menuItem}
           onClick={this.handleNoteClick}
         >
@@ -154,7 +159,7 @@ class docketBar extends React.Component {
           <p className={classes.menutext}>Private Note</p>
         </MenuItem>
         <MenuItem
-          selected={this.props.active === "timeline"}
+          selected={this.state.selected === 4}
           className={classes.menuItem}
           onClick={this.handleTimelineClick}
         >

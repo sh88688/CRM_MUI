@@ -18,6 +18,12 @@ const styles = theme => ({
     cursor: "pointer",
     opacity: 1
   },
+  selectDisplay: {
+    fontSize: "0.85em"
+  },
+  selectMenu: {
+    fontSize: "1em"
+  },
   helpIcon: {
     color: "#3d3f40",
     fontSize: 21
@@ -115,8 +121,14 @@ const InputBuilder = props => {
           }}
         >
           {props.elementConfig.options.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.displayValue}
+            <MenuItem
+              classes={{ root: classes.selectMenu }}
+              key={option.value}
+              value={option.value}
+            >
+              <span className={classes.selectDisplay}>
+                {option.displayValue}
+              </span>
             </MenuItem>
           ))}
         </TextField>

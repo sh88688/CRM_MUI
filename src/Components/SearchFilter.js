@@ -8,8 +8,10 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import ClearIcon from "@material-ui/icons/Clear";
+import FilterIcon from "@material-ui/icons/Filter";
 import IconButton from "@material-ui/core/IconButton";
 import { Typography } from "@material-ui/core";
+import Slide from "@material-ui/core/Slide";
 
 const styles = {
   dialogTitle: {
@@ -29,12 +31,13 @@ const styles = {
     fontSize: "18px"
   },
   paper: {
-    margin: "10px"
-  },
-  paperScrollPaper: {
-    maxHeight: "calc(100% - 20px)"
+    borderRadius: "2px"
   }
 };
+
+function Transition(props) {
+  return <Slide direction="up" {...props} />;
+}
 
 class SearchFilter extends React.Component {
   handleClose = () => {
@@ -47,18 +50,20 @@ class SearchFilter extends React.Component {
     return (
       <div>
         <Dialog
-          classes={{
-            paper: classes.paper,
-            paperScrollPaper: classes.paperScrollPaper
-          }}
-          fullWidth
+          fullScreen
           {...other}
+          classes={{
+            paper: classes.paper
+          }}
           className={classes.dialogTitle}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
+          TransitionComponent={Transition}
         >
           <DialogTitle className={classes.dialogTitle} id="form-dialog-title">
-            <Typography variant="subtitle1">Filter</Typography>
+            <Typography color="secondary" variant="button">
+              Filters
+            </Typography>
             <IconButton
               onClick={this.handleClose}
               className={classes.clearButton}
@@ -70,7 +75,6 @@ class SearchFilter extends React.Component {
           <DialogContent>
             <br />
             <TextField
-              autoFocus
               margin="dense"
               id="docket"
               label="Docket Number"
@@ -126,7 +130,7 @@ class SearchFilter extends React.Component {
               Search
             </Button>
             <Button onClick={this.handleClose} color="primary">
-              Cancel
+              Clear
             </Button>
           </DialogActions>
         </Dialog>

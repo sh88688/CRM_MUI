@@ -11,7 +11,6 @@ import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import red from "@material-ui/core/colors/red";
 import FavoriteIcon from "@material-ui/icons/Call";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
@@ -67,9 +66,6 @@ const styles = theme => ({
   iconButton: { padding: "8px" },
   icon: {
     fontSize: "20px"
-  },
-  avatar: {
-    backgroundColor: red[500]
   }
 });
 
@@ -81,8 +77,11 @@ class DocketCard extends React.Component {
   handleExpandClick = () => {
     this.setState(state => ({ expanded: !state.expanded }));
   };
-  handleDocketClick = () => {
-    this.props.history.push("/details");
+  handleDocketClick = (docket, cname) => {
+    this.props.history.push("/details", {
+      docket_no: docket,
+      customer_name: cname
+    });
   };
 
   render() {
@@ -96,7 +95,9 @@ class DocketCard extends React.Component {
             title={
               <div className={classes.headerDiv}>
                 <Typography
-                  onClick={this.handleDocketClick}
+                  onClick={() =>
+                    this.handleDocketClick(data.docket_no, data.customer_name)
+                  }
                   className={classes.title}
                   variant="h6"
                 >

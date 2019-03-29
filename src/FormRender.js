@@ -39,7 +39,8 @@ class FormRender extends Component {
       formIsValid: false,
       loading: false,
       alertopen: false,
-      submitJson: ""
+      submitJson: "",
+      btnDisable: false
     };
   }
   handleAlertClose = () => {
@@ -62,13 +63,14 @@ class FormRender extends Component {
       ].value;
     }
     if (didFormValid.formValidity) {
-      this.setState({ loading: true });
+      this.setState({ loading: true, btnDisable: true });
       setTimeout(() => {
         console.log(formData);
         this.setState({
           loading: false,
           submitJson: JSON.stringify(formData),
-          alertopen: true
+          alertopen: true,
+          btnDisable: false
         });
       }, 1000);
     }
@@ -150,6 +152,7 @@ class FormRender extends Component {
               variant="contained"
               color="secondary"
               onClick={this.submitHandler}
+              disabled={this.state.btnDisable}
             >
               {this.props.buttonText}
             </Button>

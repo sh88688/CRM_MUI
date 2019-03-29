@@ -4,8 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import NoteIcon from "@material-ui/icons/Note";
-import FormRender from "./FormRender";
-import DocketBar from "./Components/docketBar";
+import FormRender from "../FormRender";
 
 const styles = theme => ({
   root: {
@@ -68,7 +67,7 @@ class TicketUpdate extends React.Component {
 
     return (
       <div>
-        <DocketBar active="note" />
+        {/* <DocketBar active="note" /> */}
         <Grid
           container
           className={classes.container}

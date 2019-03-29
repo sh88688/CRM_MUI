@@ -7,6 +7,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Dialog from "@material-ui/core/Dialog";
 import SortIcon from "@material-ui/icons/Sort";
 import { Typography } from "@material-ui/core";
+import Slide from "@material-ui/core/Slide";
 
 const sortOptions = [
   "Docket Number",
@@ -26,7 +27,9 @@ const styles = {
     fontSize: "15px"
   }
 };
-
+function Transition(props) {
+  return <Slide direction="up" {...props} />;
+}
 class SortDialog extends React.Component {
   handleClose = () => {
     this.props.onClose(this.props.selectedValue);
@@ -44,6 +47,7 @@ class SortDialog extends React.Component {
         onClose={this.handleClose}
         aria-labelledby="simple-dialog-title"
         {...other}
+        TransitionComponent={Transition}
       >
         <div>
           <List>

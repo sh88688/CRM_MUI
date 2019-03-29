@@ -1,0 +1,44 @@
+[
+  {
+    "docket_no": "T2019022800174",
+    "customer_name": "Nidhi Sharma",
+    "assigned_by": "Richa_Gupta_C00174",
+    "assigned_on": "2019-03-01 18:15:12",
+    "created_on": "2019-02-25 16:15:26",
+    "ticket_status": "NEW",
+    "ticket_type": "Query",
+    "status_color": "limegreen",
+    "priority": "Critical",
+    "disposition": "Payment",
+    "sub_disposition": "Login issue",
+    "problem": "Unable to login at the portal."
+  },
+  {
+    "docket_no": "T2019022800175",
+    "customer_name": "Sabohi Zaidi",
+    "assigned_by": "Vikas_Kumar_C00078",
+    "assigned_on": "2019-03-02 20:56:12",
+    "created_on": "2019-02-26 15:56:00",
+    "ticket_status": "NEW",
+    "ticket_type": "Ticket Created",
+    "status_color": "limegreen",
+    "priority": "Severity 3",
+    "disposition": "Returns",
+    "sub_disposition": "GSTR 3B",
+    "problem": "Unable to submit return showing error."
+  },
+  {
+    "docket_no": "T2019022800176",
+    "customer_name": "Bhavtosh Chabra",
+    "assigned_by": "Nirmal_Singh_C00129",
+    "assigned_on": "2019-03-01 20:38:10",
+    "created_on": "2019-02-27 14:01:00",
+    "ticket_status": "ACI",
+    "ticket_type": "Ticket Created",
+    "status_color": "orange",
+    "priority": "Severity 2",
+    "disposition": "Challan",
+    "sub_disposition": "Login Issue",
+    "problem": "Problem in generating challan while login at the portal."
+  }
+]

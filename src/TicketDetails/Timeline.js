@@ -20,7 +20,6 @@ import AttachIcon from "@material-ui/icons/Attachment";
 import TicketIcon from "@material-ui/icons/ConfirmationNumber";
 import TimelineIcon from "@material-ui/icons/Schedule";
 import Divider from "@material-ui/core/Divider";
-import DocketBar from "./Components/docketBar";
 
 function TabContainer(props) {
   return (
@@ -108,7 +107,7 @@ class Details extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <DocketBar active="timeline" />
+        {/* <DocketBar active="timeline" /> */}
         <Grid
           container
           className={classes.container}
@@ -270,7 +269,6 @@ class Details extends React.Component {
             )}
             {value === 1 && (
               <TabContainer>
-                {" "}
                 <List dense>
                   <ListItem className={classes.listItem}>
                     <ListItemIcon>
@@ -306,7 +304,6 @@ class Details extends React.Component {
             )}
             {value === 2 && (
               <TabContainer>
-                {" "}
                 <List dense>
                   <ListItem className={classes.listItem}>
                     <ListItemIcon>

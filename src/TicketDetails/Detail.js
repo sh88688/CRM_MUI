@@ -4,8 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import DetailIcon from "@material-ui/icons/Info";
-import DocketBar from "./Components/docketBar";
+import DetailIcon from "@material-ui/icons/Person";
 
 const styles = theme => ({
   root: {
@@ -44,7 +43,6 @@ class Details extends React.Component {
 
     return (
       <div>
-        <DocketBar active="details" />
         <Grid
           container
           className={classes.container}
@@ -73,7 +71,7 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography variant="body2" component="h3">
-                  T2019031300195
+                  {this.props.docket}
                 </Typography>
               </Grid>
               <Grid item lg={6} md={5} xs={5}>
@@ -93,7 +91,7 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography variant="body2" component="h3">
-                  Rahul Kumar Verma
+                  {this.props.customer}
                 </Typography>
               </Grid>
               <Grid item lg={6} md={5} xs={5}>
@@ -153,7 +151,7 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography
-                  style={{ color: "orange" }}
+                  style={{ color: "limegreen" }}
                   variant="body2"
                   component="h3"
                 >
