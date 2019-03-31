@@ -79,7 +79,8 @@ const styles = theme => ({
   },
   container: {
     width: "100%",
-    paddingLeft: "8px"
+    paddingLeft: "8px",
+    marginBottom: "30px"
   },
   menu: {
     position: "absolute",
@@ -107,7 +108,6 @@ class Details extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        {/* <DocketBar active="timeline" /> */}
         <Grid
           container
           className={classes.container}
@@ -119,7 +119,7 @@ class Details extends React.Component {
               <TimelineIcon color="primary" /> &nbsp; Timeline
             </Typography>
           </Grid>
-          <br /> <br />
+
           <Paper className={classes.root} elevation={1}>
             <AppBar
               position="static"
@@ -167,10 +167,10 @@ class Details extends React.Component {
                           className={classes.listPrimary}
                           variant="body1"
                         >
-                          Task #1 'Change is services for port wise db
+                          Task #1 'Change in services for port wise db
                           connection this is refer to dev team'
-                          <br /> Created by <b>Admin</b> & Assigned to{" "}
-                          <b>Nidhi</b> .
+                          <br /> Created by <b>Admin</b> & Assigned to
+                          <b> Sabohi Zaidi</b> .
                         </Typography>
                       }
                       secondary={
@@ -370,8 +370,6 @@ class Details extends React.Component {
             )}
           </Paper>
         </Grid>
-        <br />
-        <br />
       </div>
     );
   }

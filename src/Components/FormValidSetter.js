@@ -9,7 +9,7 @@ const isFormValid = jsonform => {
     form[key].elementConfig.helperText = getValidity.errorText;
     form[key].touched = true;
     formIsValid = form[key].valid && formIsValid;
-    console.log("element", form[key].valid, "now form ", formIsValid);
+    // console.log("element", form[key].valid, "now form ", formIsValid);
   }
   return { formValidity: formIsValid, validatedForm: form };
 };

@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import NoteIcon from "@material-ui/icons/Note";
-import FormRender from "../FormRender";
+import FormRender from "../Components/FormRender";
 
 const styles = theme => ({
   root: {
@@ -28,7 +28,8 @@ const styles = theme => ({
   },
   container: {
     width: "100%",
-    paddingLeft: "8px"
+    paddingLeft: "8px",
+    marginBottom: "30px"
   },
   menu: {
     position: "absolute",
@@ -67,7 +68,6 @@ class TicketUpdate extends React.Component {
 
     return (
       <div>
-        {/* <DocketBar active="note" /> */}
         <Grid
           container
           className={classes.container}
@@ -79,13 +79,11 @@ class TicketUpdate extends React.Component {
               <NoteIcon color="primary" /> &nbsp; Private Note
             </Typography>
           </Grid>
-          <br /> <br />
+
           <Grid item xs={11}>
             <FormRender json={this.state.jsonForm} buttonText="Save" />
           </Grid>
         </Grid>
-        <br />
-        <br />
       </div>
     );
   }

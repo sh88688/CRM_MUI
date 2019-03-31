@@ -16,7 +16,7 @@ const routing = (
       <MuiThemeProvider theme={muiTheme}>
         <CssBaseline />
         <Route exact path="/" component={Tickets} />
-        <Route exact path="/details" component={TicketView} />
+        <Route path="/details" component={TicketView} />
       </MuiThemeProvider>
     </div>
   </Router>

@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
-import InputBuilder from "./Components/InputBuilder";
-import ErrorBoundary from "./Components/ErrorBoundary";
+import InputBuilder from "./InputBuilder";
+import ErrorBoundary from "./ErrorBoundary";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-
+import DialogContentText from "@material-ui/core/DialogContentText";
 import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import checkValidity from "./Components/FieldValidator";
-import isFormValid from "./Components/FormValidSetter";
+import checkValidity from "./FieldValidator";
+import isFormValid from "./FormValidSetter";
 
 import { withStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
 
 const styles = {
   button: {
@@ -26,6 +28,10 @@ const styles = {
   cardActions: {
     marginBottom: "10px",
     marginLeft: "10px"
+  },
+  paper: {
+    width: "-webkit-fill-available",
+    margin: "18px"
   }
 };
 
@@ -65,7 +71,6 @@ class FormRender extends Component {
     if (didFormValid.formValidity) {
       this.setState({ loading: true, btnDisable: true });
       setTimeout(() => {
-        console.log(formData);
         this.setState({
           loading: false,
           submitJson: JSON.stringify(formData),
@@ -164,11 +169,21 @@ class FormRender extends Component {
           onClose={this.handleAlertClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
+          classes={{ paper: classes.paper }}
         >
-          <DialogContent>{this.state.submitJson}</DialogContent>
+          <DialogTitle id="alert-dialog-title">
+            <Typography variant="body2">
+              Ticket updated Successfully.
+            </Typography>
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              <code>{this.state.submitJson}</code>
+            </DialogContentText>
+          </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleAlertClose} color="primary">
-              Close
+            <Button onClick={this.handleAlertClose} color="secondary">
+              Ok
             </Button>
           </DialogActions>
         </Dialog>

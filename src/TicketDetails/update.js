@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import DetailIcon from "@material-ui/icons/Update";
-import FormRender from "../FormRender";
+import FormRender from "../Components/FormRender";
 
 const styles = theme => ({
   root: {
@@ -28,7 +28,8 @@ const styles = theme => ({
   },
   container: {
     width: "100%",
-    paddingLeft: "8px"
+    paddingLeft: "8px",
+    marginBottom: "30px"
   },
 
   menu: {
@@ -165,7 +166,6 @@ class TicketUpdate extends React.Component {
 
     return (
       <div>
-        {/* <DocketBar active="update" /> */}
         <Grid
           container
           className={classes.container}
@@ -177,13 +177,11 @@ class TicketUpdate extends React.Component {
               <DetailIcon color="primary" /> &nbsp; Ticket Updation
             </Typography>
           </Grid>
-          <br /> <br />
+
           <Grid item xs={11}>
             <FormRender json={this.state.jsonForm} buttonText="Update Ticket" />
           </Grid>
         </Grid>
-        <br />
-        <br />
       </div>
     );
   }

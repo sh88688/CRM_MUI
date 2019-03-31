@@ -5,7 +5,6 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import DetailIcon from "@material-ui/icons/Person";
-
 const styles = theme => ({
   root: {
     width: "90%",
@@ -22,6 +21,11 @@ const styles = theme => ({
     fontSize: "1.05rem",
     fontWeight: "500",
     display: "flex"
+  },
+  rootContainer: {
+    width: "100%",
+    paddingLeft: "8px",
+    marginBottom: "30px"
   },
   container: {
     width: "100%",
@@ -45,7 +49,7 @@ class Details extends React.Component {
       <div>
         <Grid
           container
-          className={classes.container}
+          className={classes.rootContainer}
           justify="center"
           spacing={8}
         >
@@ -54,7 +58,7 @@ class Details extends React.Component {
               <DetailIcon color="primary" /> &nbsp; Basic Details
             </Typography>
           </Grid>
-          <br /> <br />
+
           <Paper className={classes.root} elevation={1}>
             <Grid
               container
@@ -71,7 +75,7 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography variant="body2" component="h3">
-                  {this.props.docket}
+                  {this.props.docketData.docket_no}
                 </Typography>
               </Grid>
               <Grid item lg={6} md={5} xs={5}>
@@ -81,7 +85,7 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography variant="body2" component="h3">
-                  Critical
+                  {this.props.docketData.priority}
                 </Typography>
               </Grid>
               <Grid item lg={6} md={5} xs={5}>
@@ -91,7 +95,7 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography variant="body2" component="h3">
-                  {this.props.customer}
+                  {this.props.docketData.customer_name}
                 </Typography>
               </Grid>
               <Grid item lg={6} md={5} xs={5}>
@@ -121,7 +125,7 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography variant="body2" component="h3">
-                  2019/03/13 12:49:55
+                  {this.props.docketData.created_on}
                 </Typography>
               </Grid>
               <Grid item lg={6} md={5} xs={5}>
@@ -141,7 +145,7 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography variant="body2" component="h3">
-                  Query
+                  {this.props.docketData.ticket_type}
                 </Typography>
               </Grid>
               <Grid item lg={6} md={5} xs={5}>
@@ -151,11 +155,11 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography
-                  style={{ color: "limegreen" }}
+                  style={{ color: this.props.docketData.status_color }}
                   variant="body2"
                   component="h3"
                 >
-                  NEW
+                  {this.props.docketData.ticket_status}
                 </Typography>
               </Grid>
               <Grid item lg={6} md={5} xs={5}>
@@ -165,7 +169,7 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography variant="body2" component="h3">
-                  Payment
+                  {this.props.docketData.disposition}
                 </Typography>
               </Grid>
               <Grid item lg={6} md={5} xs={5}>
@@ -175,7 +179,7 @@ class Details extends React.Component {
               </Grid>
               <Grid item lg={6} md={7} xs={7}>
                 <Typography variant="body2" component="h3">
-                  Login Issue
+                  {this.props.docketData.sub_disposition}
                 </Typography>
               </Grid>
               <Grid item lg={12} md={12} xs={12} />
@@ -184,7 +188,7 @@ class Details extends React.Component {
                   Problem Reported
                 </Typography>
                 <Typography variant="body2" component="h3">
-                  My challan was not created due to the login failure.
+                  {this.props.docketData.problem}
                 </Typography>
               </Grid>
               <Grid item lg={12} md={12} xs={12}>
@@ -206,8 +210,6 @@ class Details extends React.Component {
             </Grid>
           </Paper>
         </Grid>
-        <br />
-        <br />
       </div>
     );
   }

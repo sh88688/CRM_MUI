@@ -10,16 +10,13 @@ class TicketView extends React.Component {
   constructor(props) {
     super(props);
     const urlParams = this.props.location.state;
-    console.log(urlParams);
     this.state = {
       value: 0,
-      docket: urlParams.docket_no,
-      customer: urlParams.customer_name
+      docketDetails: urlParams
     };
   }
 
   handleChange = selectedValue => {
-    console.log("change value", selectedValue);
     this.setState({ value: selectedValue });
   };
 
@@ -28,9 +25,7 @@ class TicketView extends React.Component {
     return (
       <div>
         <DocketBar onSelect={this.handleChange} />
-        {value === 0 && (
-          <Detail docket={this.state.docket} customer={this.state.customer} />
-        )}
+        {value === 0 && <Detail docketData={this.state.docketDetails} />}
         {value === 1 && <TicketUpdate />}
         {value === 2 && <TicketAssign />}
         {value === 3 && <PrivateNote />}

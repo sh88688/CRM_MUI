@@ -77,11 +77,8 @@ class DocketCard extends React.Component {
   handleExpandClick = () => {
     this.setState(state => ({ expanded: !state.expanded }));
   };
-  handleDocketClick = (docket, cname) => {
-    this.props.history.push("/details", {
-      docket_no: docket,
-      customer_name: cname
-    });
+  handleDocketClick = docketData => {
+    this.props.history.push("/details", docketData);
   };
 
   render() {
@@ -95,9 +92,7 @@ class DocketCard extends React.Component {
             title={
               <div className={classes.headerDiv}>
                 <Typography
-                  onClick={() =>
-                    this.handleDocketClick(data.docket_no, data.customer_name)
-                  }
+                  onClick={() => this.handleDocketClick(data)}
                   className={classes.title}
                   variant="h6"
                 >

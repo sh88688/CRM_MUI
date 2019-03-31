@@ -40,5 +40,19 @@
     "disposition": "Challan",
     "sub_disposition": "Login Issue",
     "problem": "Problem in generating challan while login at the portal."
+  },
+  {
+    "docket_no": "T2019022800178",
+    "customer_name": "Shivam Sharma",
+    "assigned_by": "Rahul_Verma_5126",
+    "assigned_on": "2019-03-01 20:38:10",
+    "created_on": "2019-03-01 20:25:00",
+    "ticket_status": "ING",
+    "ticket_type": "Ticket Created",
+    "status_color": "skyblue",
+    "priority": "Severity 1",
+    "disposition": "Refund",
+    "sub_disposition": "Refund not initiated",
+    "problem": "Not showing refund status as initiated."
   }
 ]
